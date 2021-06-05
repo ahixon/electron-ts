@@ -1,8 +1,10 @@
-# electron-quick-start-typescript
+# electron-ts
 
-**Clone and run for a quick way to see Electron in action.**
+**Use your favourite modules**
 
-This is a [TypeScript](https://www.typescriptlang.org) port of the [Electron Quick Start repo](https://github.com/electron/electron-quick-start) -- a minimal Electron application based on the [Quick Start Guide](http://electron.atom.io/docs/tutorial/quick-start) within the Electron documentation.
+This is a fork of the [electron-quick-start-typescript](https://github.com/electron/electron-quick-start-typescript) repo, with Rollup added as a bundler, so that you can use things like React without much hassle. There are now two build processes fused into one, because there are two code bases: one for the main process and one for the renderer.
+
+Use `watch:bundle` for the bundle that goes inside the Electron app, and `watch:electron` for the app itself.
 
 **Use this app along with the [Electron API Demos](http://electron.atom.io/#get-started) app for API code examples to help you get started.**
 
@@ -20,12 +22,19 @@ To clone and run this repository you'll need [Git](https://git-scm.com) and [Nod
 
 ```bash
 # Clone this repository
-git clone https://github.com/electron/electron-quick-start-typescript
+git clone https://github.com/ahixon/electron-ts
 # Go into the repository
-cd electron-quick-start-typescript
+cd electron-ts
 # Install dependencies
 npm install
-# Run the app
+# Build the main and renderer process code
+npm build
+# use npm run watch:bundle or
+#     npm run watch:electron
+# to develop on the bundle or the 
+# app itself :)
+#
+# Run the Electron app
 npm start
 ```
 
@@ -33,10 +42,12 @@ Note: If you're using Linux Bash for Windows, [see this guide](https://www.howto
 
 ## Re-compile automatically
 
+I've never used this but this was in the original readme
+
 To recompile automatically and to allow using [electron-reload](https://github.com/yan-foto/electron-reload), run this in a separate terminal:
 
 ```bash
-npm run watch
+npm run watch:bundle
 ```
 
 ## Resources for Learning Electron

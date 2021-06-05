@@ -1,5 +1,7 @@
-import { app, BrowserWindow } from "electron";
-import * as path from "path";
+const electron = require('electron');
+const { app, BrowserWindow } = electron;
+
+const path = require('path');
 
 function createWindow() {
   // Create the browser window.
@@ -7,12 +9,13 @@ function createWindow() {
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
+      worldSafeExecuteJavaScript: true, // does this go 
     },
     width: 800,
   });
 
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, "../index.html"));
+  mainWindow.loadFile(path.join(__dirname, "../../index.html"));
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
